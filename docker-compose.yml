@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    image: node:12-alpine
+    command: sh -c "yarn install && yarn start"
+    #command: sh -c "yarn create react-app reactnd-contacts-app && yarn add prop-types"
+    ports:
+      - 3000:3000
+    working_dir: /my_reads
+    volumes:
+      - ./:/my_reads:consistent
+    stdin_open: true
+

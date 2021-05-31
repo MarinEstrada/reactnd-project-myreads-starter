@@ -1,3 +1,29 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## How to run this My Reads project locally
+
+This project is inteded to be developed with docker.
+Intalling docker locally is required to run this locally.
+
+to start the app locally run:
+`docker-compose up -d`
+
+to download needed dependencies run:
+`bash add_dependencies.sh {dependency_name}`
+
+if new libraries where added to api run:
+    `docker-compose up -d --build`
+
+    to take a look at the logs:
+    `docker-compose logs -f`
+
+    to tear the containers down
+    `docker-compose down`
+
+    to tear down the database named volumes with containers
+    `docker-compose down --volumes`
+
+
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
