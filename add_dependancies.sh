@@ -23,3 +23,5 @@ fi
 #yarn add prop-types
 #yarn add escape-string-regexp
 #yarn add sort-by
+#yarn add react-router-dom
+#yarn add prop-types
