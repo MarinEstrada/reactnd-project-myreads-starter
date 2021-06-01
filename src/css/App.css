@@ -7,21 +7,21 @@ body {
 }
 
 body, .app {
-  background: white;
+  background: #d8edd8;
 }
 
 /* main page */
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: #882c34;
   text-align: center;
 }
 
 .list-books-title h1 {
   font-weight: 400;
   margin: 0;
-  color: white;
+  color: #e5c100;
 }
 
 .list-books-content {
@@ -40,7 +40,7 @@ body, .app {
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid white;
 }
 
 .bookshelf-books {

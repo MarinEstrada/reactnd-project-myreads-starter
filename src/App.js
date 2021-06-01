@@ -15,15 +15,20 @@ class BooksApp extends React.Component {
       books: [],
   }
 
+    
+
+
   render() {
 
       const shelves=['Currently Reading', 'Want to Read', 'Read'];
 
     return (
-        <div>
-            <h1 className='page-header'>MyReads</h1>
+        <div className='app'>
+            <div className='list-books-title'>
+                <h1>MyReads</h1>
+            </div>
             {shelves.map((current_shelf) =>
-            <div className='list-shelves'>
+            <div className='bookshelf'>
                 <Shelf
                     shelf_type={current_shelf}
                     shelf_books={this.state.books.filter((b) => b.onShelf === current_shelf)}
