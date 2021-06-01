@@ -13,7 +13,13 @@ class Shelf extends React.Component{
         const { shelf_type, shelf_books } = this.props
 
         return (
-            <h2 className='bookshelf-title'>{shelf_type}</h2>
+            <div className='bookshelf'>
+                <h2 className='bookshelf-title'>{shelf_type}</h2>
+                <div className='bookshelf-books'>
+                    <ol className='books-grid'>
+                    </ol>
+                </div>
+            </div>
         )
     }
 }
