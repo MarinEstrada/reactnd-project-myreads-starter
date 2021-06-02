@@ -24,6 +24,17 @@ class BooksApp extends React.Component {
             })
     }
 
+    changeShelf = (book, new_shelf) => {
+        this.setState((currentState) => ({
+            books: currentState.books.map((b) => (
+                b.id === book.id
+                ? {...b, shelf: new_shelf}
+                : b
+            ))
+        }))
+    }
+
+
 
   render() {
 
@@ -37,6 +48,7 @@ class BooksApp extends React.Component {
             {shelves.map((current_shelf) =>
             <div className='bookshelf'>
                 <Shelf
+                    changeShelf={this.changeShelf}
                     shelf_type={current_shelf}
                     shelf_books={this.state.books.filter((b) => (
                         b.shelf.toLowerCase() === current_shelf.toLowerCase().replace(/\s/g, "")
