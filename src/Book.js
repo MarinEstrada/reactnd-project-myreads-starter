@@ -21,7 +21,7 @@ class Book extends React.Component {
                         style={{
                             width: 128,
                             height: 193,
-                            backgroundImage: book.infolink
+                            backgroundImage: `url(${book.imageLinks.thumbnail})`
                         }}
                     ></div>
                 </div>
