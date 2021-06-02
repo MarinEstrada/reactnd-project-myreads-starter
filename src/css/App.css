@@ -7,21 +7,21 @@ body {
 }
 
 body, .app {
-  background: white;
+  background: #d8edd8;
 }
 
 /* main page */
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: #882c34;
   text-align: center;
 }
 
 .list-books-title h1 {
   font-weight: 400;
   margin: 0;
-  color: white;
+  color: #e5c100;
 }
 
 .list-books-content {
@@ -40,7 +40,7 @@ body, .app {
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid white;
 }
 
 .bookshelf-books {
@@ -59,7 +59,7 @@ body, .app {
   height: 50px;
   border-radius: 50%;
   background: #2e7d32;
-  background-image: url('./icons/add.svg');
+  background-image: url('../icons/add.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 28px;
@@ -104,7 +104,7 @@ body, .app {
   left: 15px;
   width: 50px;
   height: 53px;
-  background-image: url('./icons/arrow-back.svg');
+  background-image: url('../icons/arrow-back.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 28px;
@@ -170,7 +170,7 @@ button:active {
   height: 40px;
   border-radius: 50%;
   background: #60ac5d;
-  background-image: url('./icons/arrow-drop-down.svg');
+  background-image: url('../icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
