@@ -32,6 +32,7 @@ class BooksApp extends React.Component {
                 : b
             ))
         }))
+        BooksAPI.update(book, new_shelf)
     }
 
 
