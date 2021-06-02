@@ -38,7 +38,9 @@ class BooksApp extends React.Component {
             <div className='bookshelf'>
                 <Shelf
                     shelf_type={current_shelf}
-                    shelf_books={this.state.books.filter((b) => b.onShelf === current_shelf)}
+                    shelf_books={this.state.books.filter((b) => (
+                        b.shelf.toLowerCase() === current_shelf.toLowerCase().replace(/\s/g, "")
+                    ))}
                 />
             </div>
             )}
