@@ -3,6 +3,8 @@ import * as BooksAPI from './BooksAPI'
 import './css/App.css'
 import { Route } from 'react-router-dom'
 import Shelf from './Shelf'
+import Search from './Search'
+
 
 class BooksApp extends React.Component {
   state = {
@@ -62,4 +64,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default BooksApp;
