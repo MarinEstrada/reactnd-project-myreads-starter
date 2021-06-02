@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './css/App.css'
+import Book from './Book'
+
+
 class Shelf extends React.Component{
 
     static propTypes = {
@@ -17,6 +20,13 @@ class Shelf extends React.Component{
                 <h2 className='bookshelf-title'>{shelf_type}</h2>
                 <div className='bookshelf-books'>
                     <ol className='books-grid'>
+                        {shelf_books.map((b) =>
+                        <li>
+                            <Book
+                                book={b}
+                            />
+                        </li>
+                        )}
                     </ol>
                 </div>
             </div>
@@ -24,4 +34,4 @@ class Shelf extends React.Component{
     }
 }
 
-export default Shelf
+export default Shelf;
