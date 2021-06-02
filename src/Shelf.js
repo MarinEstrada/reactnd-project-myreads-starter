@@ -9,11 +9,12 @@ class Shelf extends React.Component{
     static propTypes = {
         shelf_type: PropTypes.string.isRequired,
         shelf_books: PropTypes.array.isRequired,
+        changeShelf: PropTypes.func.isRequired,
     }
 
     render() {
 
-        const { shelf_type, shelf_books } = this.props
+        const { changeShelf, shelf_type, shelf_books } = this.props
 
         return (
             <div className='bookshelf'>
@@ -24,6 +25,7 @@ class Shelf extends React.Component{
                         <li>
                             <Book
                                 book={b}
+                                changeShelf={changeShelf}
                             />
                         </li>
                         )}

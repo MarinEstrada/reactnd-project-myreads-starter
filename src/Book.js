@@ -7,11 +7,12 @@ class Book extends React.Component {
 
     static propTypes = {
         book: PropTypes.object.isRequired,
+        changeShelf: PropTypes.func.isRequired,
     }
 
     render () {
 
-        const { book } = this.props
+        const { changeShelf, book } = this.props
 
         return (
             <div className='book'>
@@ -25,7 +26,7 @@ class Book extends React.Component {
                         }}
                     ></div>
                     <div className='book-shelf-changer'>
-                        <select>
+                        <select onChange={(event) => changeShelf(book, event.target.value)}>
                             <option value='move' disabled>Move to...</option>
                             <option value='currentlyReading'>Currently Reading</option>
                             <option value='wantToRead'>Want to Read</option>
