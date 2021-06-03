@@ -2,11 +2,11 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './css/App.css'
 import { Route } from 'react-router-dom'
-import Shelf from './Shelf'
+import BookCase from './BookCase'
 import Search from './Search'
 
 
-class BooksApp extends React.Component {
+class App extends React.Component {
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -45,23 +45,16 @@ class BooksApp extends React.Component {
 
     return (
         <div className='app'>
-            <div className='list-books-title'>
-                <h1>MyReads</h1>
-            </div>
-            {shelves.map((current_shelf) =>
-            <div className='bookshelf'>
-                <Shelf
+            <Route exact path='/' render={() => (
+                <BookCase
+                    shelves={shelves}
                     changeShelf={this.changeShelf}
-                    shelf_type={current_shelf}
-                    shelf_books={this.state.books.filter((b) => (
-                        b.shelf.toLowerCase() === current_shelf.toLowerCase().replace(/\s/g, "")
-                    ))}
+                    books={this.state.books}
                 />
-            </div>
-            )}
+            )} />
         </div>
     )
   }
 }
 
-export default BooksApp;
+export default App;
