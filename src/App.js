@@ -52,6 +52,10 @@ class App extends React.Component {
                     books={this.state.books}
                 />
             )} />
+            <Route path='/search' render={({ history }) => (
+                <Search
+                />
+            )} />
         </div>
     )
   }
