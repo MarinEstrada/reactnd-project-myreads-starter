@@ -2,6 +2,7 @@ import React from 'react'
 import './css/App.css'
 import Shelf from './Shelf'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 class BookCase extends React.Component {
 
@@ -32,6 +33,10 @@ class BookCase extends React.Component {
                     />
                 </div>
                 )}
+                <Link className='open-search' to='/search'>
+                    <button>
+                    </button>
+                </Link>
             </div>
         )
     }
