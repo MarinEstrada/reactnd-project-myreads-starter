@@ -20,16 +20,18 @@ class Shelf extends React.Component{
             <div className='bookshelf'>
                 <h2 className='bookshelf-title'>{shelf_type}</h2>
                 <div className='bookshelf-books'>
-                    <ol className='books-grid'>
-                        {shelf_books.map((b) =>
-                        <li>
-                            <Book
-                                book={b}
-                                changeShelf={changeShelf}
-                            />
-                        </li>
-                        )}
-                    </ol>
+                    {shelf_books !== 'undefined' &&(
+                        <ol className='books-grid'>
+                            {shelf_books.map((b) =>
+                            <li>
+                                <Book
+                                    book={b}
+                                    changeShelf={changeShelf}
+                                />
+                            </li>
+                            )}
+                        </ol>
+                    )}
                 </div>
             </div>
         )
