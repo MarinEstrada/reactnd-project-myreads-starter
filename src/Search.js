@@ -19,7 +19,13 @@ class Search extends React.Component{
     }
 
     handleQuery = query => {
-        BooksAPI.search(query)
+        this.updateQuery(query)
+        query === ''
+            ? this.setState(() => ({
+                ...this.state,
+                query_books: []
+            }))
+            : BooksAPI.search(query)
             .then((query_books) => {
                 query_books.error
                     ? this.setState(() => ({
@@ -34,15 +40,20 @@ class Search extends React.Component{
     }
 
     updateQuery = query =>{
-        this.setState(() => ({
-            ...this.state,
-            query: query.trim()
-        }))
+        query === ''
+            ? this.setState(() => ({
+                ...this.state,
+                query: ''
+            }))
+            : this.setState(() => ({
+                ...this.state,
+                query: query.trim()
+            }))
     }
 
     render() {
 
-        const { query } = this.state
+        const { query, query_books } = this.state
         const { changeShelf, books} = this.props
 
         return (
@@ -56,7 +67,7 @@ class Search extends React.Component{
                             type='text'
                             placeholder='Search by Title or Author'
                             value={query}
-                            onChange={(event) => this.handleQuery(this.updateQuery(event.target.value))}
+                            onChange={(event) => this.handleQuery(event.target.value)}
                         />
                     </div>
                 </div>
