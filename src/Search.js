@@ -39,10 +39,24 @@ class Search extends React.Component{
     }
 
     prepBookResults = search_results => {
-        search_results.map((b_results) => (
+        return search_results.map((b_results) => {
+            const found = this.props.books.find((b) => (
+                b_results.id !== b.id
+            ))
+            return found === undefined
+            ? {
+                ...b_results,
+                b_results.shelf: 'none'
+            }
+            : found
+        })
+    }
+
+    BETAprepBookResults = search_results => {
+        return search_results.map((b_results) => (
             this.props.books.map((b) => (
                 b_results.id !== b.id
-                ? { ...b, shelf: 'none' }
+                ? { ...b, b.shelf: 'none' }
                 : b
             ))
         ))
