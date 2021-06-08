@@ -27,16 +27,23 @@ class App extends React.Component {
     }
 
     changeShelf = (book, new_shelf) => {
-        this.setState((currentState) => ({
-            books: currentState.books.map((b) => (
-                b.id === book.id
-                ? {...b, shelf: new_shelf}
-                : b
-            ))
-        }))
+        new_shelf === 'none'
+            ? this.setState({ books: this.removeBook(book) })
+            :this.setState((currentState) => ({
+                books: currentState.books.map((b) => (
+                    b.id === book.id
+                    ? {...b, shelf: new_shelf}
+                    : b
+                ))
+            }))
         BooksAPI.update(book, new_shelf)
     }
 
+    removeBook = (book) => {
+        return this.state.books.filter((b) => (
+            b.id !== book.id
+        ))
+    }
 
 
   render() {

@@ -26,15 +26,12 @@ class Search extends React.Component{
             .then((query_results) => {
                 query_results.error
                     ? this.setState({ query_books: [] })
-                    : this.setState((currentState) => ({
-                        ...currentState,
-                        query_books: this.prepBookResults(query_results)
-                    }))
+                    : this.setState({ query_books: this.prepBookResults(query_results) })
             })
     }
 
 
-    updateQuery = query =>{
+    updateQuery = query => {
         this.setState({ query: query })
     }
 
