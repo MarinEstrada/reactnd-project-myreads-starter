@@ -2,9 +2,11 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './css/App.css'
 import { Route } from 'react-router-dom'
-import Shelf from './Shelf'
+import BookCase from './BookCase'
+import Search from './Search'
 
-class BooksApp extends React.Component {
+
+class App extends React.Component {
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -25,16 +27,25 @@ class BooksApp extends React.Component {
     }
 
     changeShelf = (book, new_shelf) => {
-        this.setState((currentState) => ({
-            books: currentState.books.map((b) => (
-                b.id === book.id
-                ? {...b, shelf: new_shelf}
-                : b
-            ))
-        }))
+        new_shelf === 'none'
+            ? this.setState({ books: this.removeBook(book) })
+            : book.id === 'none'
+            ? this.setState({ books: this.state.books.push(book) })
+            : this.setState((currentState) => ({
+                books: currentState.books.map((b) => (
+                    b.id === book.id
+                    ? {...b, shelf: new_shelf}
+                    : b
+                ))
+            }))
         BooksAPI.update(book, new_shelf)
     }
 
+    removeBook = (book) => {
+        return this.state.books.filter((b) => (
+            b.id !== book.id
+        ))
+    }
 
 
   render() {
@@ -43,23 +54,22 @@ class BooksApp extends React.Component {
 
     return (
         <div className='app'>
-            <div className='list-books-title'>
-                <h1>MyReads</h1>
-            </div>
-            {shelves.map((current_shelf) =>
-            <div className='bookshelf'>
-                <Shelf
+            <Route exact path='/' render={() => (
+                <BookCase
+                    shelves={shelves}
                     changeShelf={this.changeShelf}
-                    shelf_type={current_shelf}
-                    shelf_books={this.state.books.filter((b) => (
-                        b.shelf.toLowerCase() === current_shelf.toLowerCase().replace(/\s/g, "")
-                    ))}
+                    books={this.state.books}
                 />
-            </div>
-            )}
+            )} />
+            <Route path='/search' render={({ history }) => (
+                <Search
+                    changeShelf={this.changeShelf}
+                    books={this.state.books}
+                />
+            )} />
         </div>
     )
   }
 }
 
-export default BooksApp
+export default App;
