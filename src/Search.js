@@ -23,16 +23,32 @@ class Search extends React.Component{
         query === ''
             ? this.setState({ query_books: [] })
             : BooksAPI.search(query)
-            .then((query_books) => {
-                query_books.error
+            .then((query_results) => {
+                query_results.error
                     ? this.setState({ query_books: [] })
-                    : this.setState({ query_books: query_books })
+                    : this.setState((currentState) => ({
+                        ...currentState,
+                        query_books: this.prepBookResults(query_results)
+                    }))
             })
     }
+
 
     updateQuery = query =>{
         this.setState({ query: query })
     }
+
+    prepBookResults = search_results => {
+        return search_results.map((b_results) => {
+            const found = this.props.books.find((b) => (
+                b_results.id === b.id
+            ))
+            return found === undefined
+            ? { ...b_results, shelf: 'none' }
+            : found
+        })
+    }
+
 
     render() {
 
@@ -58,7 +74,7 @@ class Search extends React.Component{
                 <Shelf
                     changeShelf={changeShelf}
                     shelf_type='Search Results'
-                    shelf_books={this.state.query_books}
+                    shelf_books={query_books}
                 />
                 </div>
             </div>
