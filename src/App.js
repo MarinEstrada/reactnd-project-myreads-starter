@@ -29,7 +29,9 @@ class App extends React.Component {
     changeShelf = (book, new_shelf) => {
         new_shelf === 'none'
             ? this.setState({ books: this.removeBook(book) })
-            :this.setState((currentState) => ({
+            : book.id === 'none'
+            ? this.setState({ books: this.state.books.push(book) })
+            : this.setState((currentState) => ({
                 books: currentState.books.map((b) => (
                     b.id === book.id
                     ? {...b, shelf: new_shelf}
