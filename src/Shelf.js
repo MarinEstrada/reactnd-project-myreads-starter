@@ -23,7 +23,7 @@ class Shelf extends React.Component{
                     {shelf_books !== 'undefined' &&(
                         <ol className='books-grid'>
                             {shelf_books.map((b) =>
-                            <li>
+                            <li key={b.id}>
                                 <Book
                                     book={b}
                                     changeShelf={changeShelf}
