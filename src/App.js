@@ -27,24 +27,12 @@ class App extends React.Component {
     }
 
     changeShelf = (book, new_shelf) => {
-        new_shelf === 'none'
-            ? this.setState({ books: this.removeBook(book) })
-            : book.id === 'none'
-            ? this.setState({ books: this.state.books.push(book) })
-            : this.setState((currentState) => ({
-                books: currentState.books.map((b) => (
-                    b.id === book.id
-                    ? {...b, shelf: new_shelf}
-                    : b
-                ))
-            }))
-        BooksAPI.update(book, new_shelf)
-    }
-
-    removeBook = (book) => {
-        return this.state.books.filter((b) => (
-            b.id !== book.id
-        ))
+        BooksAPI.update(book, new_shelf).then(() => {
+            book.shelf = new_shelf
+            this.setState({
+                books: this.state.books.filter(b => b.id !== book.id).concat(book)
+            })
+        })
     }
 
 
