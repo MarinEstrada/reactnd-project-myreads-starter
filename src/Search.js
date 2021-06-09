@@ -50,7 +50,7 @@ class Search extends React.Component{
     render() {
 
         const { query, query_books } = this.state
-        const { changeShelf, books} = this.props
+        const { changeShelf } = this.props
 
         return (
             <div className='search-books'>

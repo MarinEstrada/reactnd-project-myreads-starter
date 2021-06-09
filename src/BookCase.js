@@ -23,7 +23,7 @@ class BookCase extends React.Component {
                     <h1>MyReads</h1>
                 </div>
                 {shelves.map((current_shelf) =>
-                <div className='bookshelf'>
+                <div key={current_shelf} className='bookshelf'>
                     <Shelf
                         changeShelf={changeShelf}
                         shelf_type={current_shelf}
