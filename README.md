@@ -7,17 +7,17 @@ This project can be locally ran using
 * npm (Node Package Manager)
 * Docker
 
-#### Using npm
+### Using npm
 * install all project dependencies with:
 `npm install`
 * start the development server with:
 `npm start`
 
-#### Using Docker
+### Using Docker
 To start the app locally run:
 `docker-compose up -d`
 
-To download needed dependencies run:
+To download extra needed dependencies run:
 `bash add_dependencies.sh {dependency_name}`
 
 To take a look at the logs:
