@@ -33,29 +33,30 @@ This web app is designed to act as your own personal book case! Search for books
 ## What You're Getting
 ```bash
 ├── add_dependancies.sh # Bash file to be able to install new dependancies if you decide to run MyReads using Docker
-├── README.md # This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms that can be used in the app.
+├── docker-compose.yml # file used to run project locallly using Docker.
 ├── package-lock.json
 ├── package.json # npm package manager file.
 ├── public
 │   ├── favicon.ico # React Icon, You may change if you wish.
 │   └── index.html # DO NOT MODIFY
+├── README.md # This file.
+├── SEARCH_TERMS.md # The whitelisted short collection of available search terms that can be used in the app.
 │── src
-│   ├── App.js # This is the root of the app. Stores books currently on MyReads and contains logic to change/remove books from shelves. Provides routing to "./" & "./search"
+│   ├── App.js # This is the root of the app. Stores books currently on MyReads and contains logic to change/remove books from shelves. Provides routing to "./" & "./search".
 │   ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-│   ├── Books.js # Renders individual books
+│   ├── Books.js # Renders individual books.
 │   ├── BookCase.js # Renders main page "./"
 │   ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
 │   ├── css
-│   │   ├── App.css # Styles for your app. Edit to change appearance of webpage
+│   │   ├── App.css # Styles for your app. Edit to change appearance of webpage.
 │   │   └── index.css # Global styles.
 │   ├── icons # Helpful images for your app. Use at your discretion.
 │   │   ├── add.svg
 │   │   ├── arrow-back.svg
 │   │   └── arrow-drop-down.svg
 │   ├── index.js # Used for DOM rendering only.
-│   ├── Search.js # Renders search page "./search". Contains search logic and prepares search results for presentation in shelves
-│   └── Shelf.js # Renders individual shelves
+│   ├── Search.js # Renders search page "./search". Contains search logic and prepares search results for presentation in shelves.
+│   └── Shelf.js # Renders individual shelves.
 └── yarn.lock
 ```
 
