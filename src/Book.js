@@ -37,6 +37,14 @@ class Book extends React.Component {
                         </select>
                     </div>
                 </div>
+                <div className='book-title'>{book.title}</div>
+                {book.authors !== undefined &&(
+                    <div className='book-authors'>
+                            {book.authors.map((author) =>
+                            <div key={author}>{author}</div>
+                            )}
+                    </div>
+                )}
             </div>
         )
 

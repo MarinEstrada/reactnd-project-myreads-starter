@@ -20,7 +20,7 @@ class Shelf extends React.Component{
             <div className='bookshelf'>
                 <h2 className='bookshelf-title'>{shelf_type}</h2>
                 <div className='bookshelf-books'>
-                    {shelf_books !== 'undefined' &&(
+                    {shelf_books !== undefined &&(
                         <ol className='books-grid'>
                             {shelf_books.map((b) =>
                             <li key={b.id}>
